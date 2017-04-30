@@ -15,17 +15,19 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="css/odometer-theme-default.css" />
     <style>
     #map {
         height: 500px
     }
+    
     .bar {
-      fill: steelblue;
+        fill: steelblue;
     }
+    
     .selected {
-      fill: red;
+        fill: red;
     }
-
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,26 +76,43 @@
     <!-- Intro Section -->
     <section id="intro" class="intro-section">
         <div class="container">
-            <h1>Map of Companies Owned by Immigrants</h1>
+            <h1>Impact of Immigrants on the Economy</h1>
+            <h5>Recently, there has been a lot of controversy over immigration in the USA with the muslim immigration ban. This controversy sparked our curiosity on the impact of immigration in the US. Does immigration negatively affect the economy and cause issues in this country? What is the impact of immigration in the US?</h5>
             <br>
+            <br>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div id="immigrantpop" class="odometer">0</div>
+                    <div>immigrants living in the USA</div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="fortune500" class="odometer">0</div>
+                    <div>Percentage of Fortune 500 firms with at least one founder who is an immigrant or the child of immigrants</div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div id="shareofecon" class="odometer">0</div>
+                    <div>Percentage of total U.S Economic Output</div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="moneyspent" class="odometer">0</div>
+                    <div>dollars spent by immigrants in the U.S.A last year</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section id="map" class="intro-section">
+        <h1 style="text-align:center">Map of Companies Owned by Immigrants</h1>
+        <br>
+        <br>
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div id="map"></div>
                 </div>
-<!--                 <div class="col-lg-6">
-                    <table>
-                        <tr>
-                            <th>Company</th>
-                            <th>Country of Origin</th>
-                            <th>Number of Employees</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <tr>
-                    </table>
-                </div> -->
             </div>
         </div>
     </section>
@@ -124,10 +143,29 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
+    <script src="js/odometer.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
     <script type="text/javascript" src="immigrant_countries.json"></script>
     <script src="js/d3Scripts.js"></script>
     <script>
+
+    setTimeout(function(){
+    immigrantpop.innerHTML = 40000000;
+    }, 1000);
+
+        setTimeout(function(){
+    fortune500.innerHTML = 40.2;
+    }, 1000);
+
+                setTimeout(function(){
+    shareofecon.innerHTML = 14.2;
+    }, 1000);
+
+                    setTimeout(function(){
+    moneyspent.innerHTML = 126000000000;
+    }, 1000);
+
+
     // initialize the map
     var map = L.map('map').setView([42.35, -71.08], 3);
 
@@ -140,12 +178,9 @@
 
     for (var i = 0; i < data.length; i++) {
         marker = new L.marker(data[i]['coordinates'])
-            .bindPopup("<table>"+"<tr><td>Company: "+ data[i]['Name'] + "</td></tr><tr><td>Founder: "+ data[i]['Founder'] + "</td></tr><tr><td>Number of Employees: "+ data[i]['Employees'] + "</td></tr><tr><td>Country of Origin: "+ data[i]['Country'] + "</td></tr>"+ "</table>")
+            .bindPopup("<table>" + "<tr><td>Company: " + data[i]['Name'] + "</td></tr><tr><td>Founder: " + data[i]['Founder'] + "</td></tr><tr><td>Number of Employees: " + data[i]['Employees'] + "</td></tr><tr><td>Country of Origin: " + data[i]['Country'] + "</td></tr>" + "</table>")
             .addTo(map);
     };
-
-
-
     </script>
     <style type="text/css">
     th {
