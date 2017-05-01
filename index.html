@@ -133,6 +133,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Contact Section</h1>
+                    <select></select>
                 </div>
             </div>
         </div>
@@ -148,21 +149,20 @@
     <script type="text/javascript" src="immigrant_countries.json"></script>
     <script src="js/d3Scripts.js"></script>
     <script>
-
-    setTimeout(function(){
-    immigrantpop.innerHTML = 40000000;
+    setTimeout(function() {
+        immigrantpop.innerHTML = 40000000;
     }, 1000);
 
-        setTimeout(function(){
-    fortune500.innerHTML = 40.2;
+    setTimeout(function() {
+        fortune500.innerHTML = 40.2;
     }, 1000);
 
-                setTimeout(function(){
-    shareofecon.innerHTML = 14.2;
+    setTimeout(function() {
+        shareofecon.innerHTML = 14.2;
     }, 1000);
 
-                    setTimeout(function(){
-    moneyspent.innerHTML = 126000000000;
+    setTimeout(function() {
+        moneyspent.innerHTML = 126000000000;
     }, 1000);
 
 
@@ -174,13 +174,31 @@
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-
-
     for (var i = 0; i < data.length; i++) {
         marker = new L.marker(data[i]['coordinates'])
             .bindPopup("<table>" + "<tr><td>Company: " + data[i]['Name'] + "</td></tr><tr><td>Founder: " + data[i]['Founder'] + "</td></tr><tr><td>Number of Employees: " + data[i]['Employees'] + "</td></tr><tr><td>Country of Origin: " + data[i]['Country'] + "</td></tr>" + "</table>")
             .addTo(map);
     };
+
+
+
+    var JSON;
+
+    $.getJSON('WebScraper/info.json', function(response) {
+        JSON = response;
+
+        var keys = Object.keys(JSON); 
+
+        for(var i=0;i<keys.length;i++) { 
+            var option=$( '<option></option>').text(keys[i]); 
+            $( 'select').append(option); 
+        }
+    })
+
+
+
+
+
     </script>
     <style type="text/css">
     th {
