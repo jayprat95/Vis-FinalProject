@@ -14,9 +14,20 @@
     <link href="css/scrolling-nav.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <link rel="stylesheet" href="css/odometer-theme-default.css" />
     <style>
+
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    h1 {
+       font-family: 'Roboto Slab', serif;
+       font-size: 2.5em;  
+    }
+
     #map {
         height: 500px
     }
@@ -28,6 +39,15 @@
     .selected {
         fill: red;
     }
+
+    .block-stat {
+        font-size: 1.5em; 
+    }
+
+
+
+
+
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -82,23 +102,38 @@
             <br>
             <div class="row">
                 <div class="col-lg-6">
-                    <div id="immigrantpop" class="odometer">0</div>
-                    <div>immigrants living in the USA</div>
+                    <div class="block-stat">
+                        <div id="immigrantpop" class="odometer">0</div>
+                        <div>immigrants living in the USA</div>
+                    </div>
+
                 </div>
                 <div class="col-lg-6">
-                    <div id="fortune500" class="odometer">0</div>
-                    <div>Percentage of Fortune 500 firms with at least one founder who is an immigrant or the child of immigrants</div>
+                    <div class="block-stat">
+                        <div id="fortune500" class="odometer">0</div>
+                        <div>Percentage of Fortune 500 firms with at least one founder who is an immigrant or the child of immigrants</div>
+                    </div>
+                    
+                    
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-lg-6">
-                    <div id="shareofecon" class="odometer">0</div>
-                    <div>Percentage of total U.S Economic Output</div>
+                    <div class="block-stat">
+                        <div id="shareofecon" class="odometer">0</div>
+                        <div>Percentage of total U.S Economic Output</div>
+                    </div>
+                    
+                    
                 </div>
                 <div class="col-lg-6">
-                    <div id="moneyspent" class="odometer">0</div>
-                    <div>dollars spent by immigrants in the U.S.A last year</div>
+                    <div class="block-stat">
+                        <div id="moneyspent" class="odometer">0</div>
+                        <div>dollars spent by immigrants in the U.S.A last year</div>
+                    </div>
+                    
+                    
                 </div>
             </div>
         </div>
@@ -135,18 +170,29 @@
             <select></select>
             <div class="row">
                 <div class="col-lg-6">
-                    <p id="state-info"></p>
+                    <div class="block-stat">
+                        <p id="state-info"></p>
+                    </div>
+                    
                 </div>
                 <div class="col-lg-6">
-                    <p id="state-pop"></p>
+                    <div class="block-stat">
+                        <p id="state-pop"></p>
+                    </div>
+                    
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <p id="state-taxes"></p>
+                    <div class="block-stat">
+                        <p id="state-taxes"></p>
+                    </div>
+                    
                 </div>
                 <div class="col-lg-6">
-                    <p id="state-employees"></p>
+                    <div class="block-stat">
+                        <p id="state-employees"></p>
+                    </div>
                 </div>
             </div>
         </div>
