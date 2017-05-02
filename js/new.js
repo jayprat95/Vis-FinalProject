@@ -11,7 +11,7 @@ function gridData() {
 
         // iterate for cells/columns inside rows
         for (var column = 0; column < 10; column++) {
-            if(row==0){
+            if(row==0 || row ==1 && column < 4){
 				data[row].push({
                 x: xpos,
                 y: ypos,
@@ -25,7 +25,7 @@ function gridData() {
                 y: ypos,
                 width: width,
 				height:height,
-				image:"images/black.svg"
+				image:"images/black.svg"				
             })}
             // increment the x position. I.e. move it over by 50 (width variable)
             xpos += width;
@@ -37,6 +37,8 @@ function gridData() {
     }
     return data;
 }
+
+console.log(gridData);
 
 var gridData = gridData();    
 // I like to log the data to the console for quick debugging
@@ -52,10 +54,10 @@ var row = grid.selectAll(".row")
     .enter().append("g")
     .attr("class", "row");
 
-var column = row.selectAll(".rect")
+var column = row.selectAll(".men")
     .data(function(d) { return d; })
     .enter().append("svg:image")
-    .attr("class","rect")
+    .attr("class","men")
 	.attr("xlink:href", function(d){return d.image;})
     .attr("x", function(d) { return d.x; })
     .attr("y", function(d) { return d.y; })
