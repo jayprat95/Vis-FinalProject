@@ -209,6 +209,12 @@
         }
 
 
+            $("#state-info").text(JSON['Mississippi']['info']);
+            $("#state-pop").text(JSON['Mississippi']['Immigrant Residents']);
+            $("#state-taxes").text(JSON['Mississippi']['Immigrant Taxes Paid (2014)']);
+            $("#state-employees").text(JSON['Mississippi']['Employees at Immigrant-Owned Firms']);
+
+
         $('select').on('change', function() {
             var selected = String($(this).find(":selected").val()); 
             console.log(JSON[selected]); 
