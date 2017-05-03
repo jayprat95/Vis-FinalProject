@@ -28,7 +28,7 @@ function isScrolledIntoView($elem, $window) {
     var elemTop = $elem.offset().top;
     var elemBottom = elemTop + $elem.height();
 
-    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    return ((elemBottom <= (docViewBottom + 10)) && (elemTop >= (docViewTop - 10)));
 }
 $(document).on("scroll", function () {
     if (isScrolledIntoView($("#grid"), $(window))) {
