@@ -278,7 +278,6 @@
 
         $('select').on('change', function() {
             var selected = String($(this).find(":selected").val());
-            console.log(JSON[selected]);
             $("#state-info").text(JSON[selected]['info']);
             $("#state-pop").text(JSON[selected]['Immigrant Residents']);
             $("#state-taxes").text(JSON[selected]['Immigrant Taxes Paid (2014)']);
