@@ -1,11 +1,11 @@
-function gridData() {
+function gridData(widthCanvas, heightCanvas) {
     var data = new Array();
     var xpos = 1; //starting xpos and ypos at 1 so the stroke will show when we make the grid below
     var ypos = 1;
-    var width = 50;
-    var height = 50;
+    var width = widthCanvas/10;
+    var height = heightCanvas/10;
 
-    // iterate for rows 
+    // iterate for rows
     for (var row = 0; row < 10; row++) {
         data.push( new Array() );
 
@@ -25,7 +25,7 @@ function gridData() {
                 y: ypos,
                 width: width,
 				height:height,
-				image:"images/black.svg"				
+				image:"images/black.svg"
             })}
             // increment the x position. I.e. move it over by 50 (width variable)
             xpos += width;
@@ -33,18 +33,20 @@ function gridData() {
         // reset the x position after a row is complete
         xpos = 1;
         // increment the y position for the next row. Move it down 50 (height variable)
-        ypos += height; 
+        ypos += height;
     }
     return data;
 }
 
-console.log(gridData);
 
-var gridData = gridData();    
+var grid = d3.select("#people-grid");
+
+
+console.log(gridData);
+var gridData = gridData(parseInt(grid.style("width").replace("px","")),parseInt(grid.style("height").replace("px","")));
 // I like to log the data to the console for quick debugging
 console.log(gridData);
 
-var grid = d3.select("#people-grid");
 
 var row = grid.selectAll(".row")
     .data(gridData)
@@ -60,3 +62,10 @@ var column = row.selectAll(".men")
     .attr("y", function(d) { return d.y; })
     .attr("width", function(d) { return d.width; })
 	.attr("height", function(d) { return d.height; });
+
+  var men = d3.selectAll(".men")
+              .style('opacity', 0)
+              .transition()
+              .delay(function(d,i) { return i * 100; })
+              .duration(100)
+              .style('opacity', 1);

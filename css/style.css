@@ -28,32 +28,39 @@ html {
 
 
 /* Demo Sections - You can use these as guides or delete them - the scroller will work with any sort of height, fixed, undefined, or percentage based.
-The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 
+The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children
 of those sections to manage the look and feel of the site. */
+.initial-section {
+    min-height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background-image: url("../images/intial.jpeg");
+    color: #fff!important;
+}
 
 .intro-section {
-    height: 100%;
+    min-height: 100%;
     padding-top: 150px;
     text-align: center;
     background: #fff;
 }
 
 .about-section {
-    height: 100%;
+    min-height: 100%;
     padding-top: 150px;
     text-align: center;
     background: #fff;
 }
 
 .services-section {
-    height: 100%;
+    min-height: 100%;
     padding-top: 150px;
     text-align: center;
     background: #fff;
 }
 
 .contact-section {
-    height: 100%;
+    min-height: 100%;
     padding-top: 150px;
     text-align: center;
     background: #fff;
@@ -98,10 +105,10 @@ h1 {
 }
 
 #state-info {
-    font-size: 0.25em;
+    font-size: 0.15em;
 }
 
 .num-head {
-    margin-top: 1000px; 
-    text-align: left; 
+    margin-top: 1000px;
+    text-align: left;
 }
