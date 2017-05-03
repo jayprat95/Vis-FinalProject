@@ -100,3 +100,8 @@ h1 {
 #state-info {
     font-size: 0.25em;
 }
+
+.num-head {
+    margin-top: 1000px; 
+    text-align: left; 
+}
