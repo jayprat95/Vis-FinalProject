@@ -11,7 +11,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
@@ -78,17 +78,14 @@
                 <div class="col-lg-6">
                     <div class="block-stat">
                         <div id="immigrantpop" class="odometer">0</div>
-                        <div>immigrants living in the USA</div>
+                        <div class="num-caption">immigrants living in the USA</div>
                     </div>
-
                 </div>
                 <div class="col-lg-6">
                     <div class="block-stat">
                         <div id="fortune500" class="odometer">0</div>
-                        <div>Percentage of Fortune 500 firms with at least one founder who is an immigrant or the child of immigrants</div>
+                        <div class="num-caption">Percentage of Fortune 500 firms with at least one founder who is an immigrant or the child of immigrants</div>
                     </div>
-                    
-                    
                 </div>
             </div>
             <br>
@@ -96,34 +93,32 @@
                 <div class="col-lg-6">
                     <div class="block-stat">
                         <div id="shareofecon" class="odometer">0</div>
-                        <div>Percentage of total U.S Economic Output</div>
+                        <div class="num-caption">Percentage of total U.S Economic Output</div>
                     </div>
-                    
-                    
                 </div>
                 <div class="col-lg-6">
                     <div class="block-stat">
                         <div id="moneyspent" class="odometer">0</div>
-                        <div>dollars spent by immigrants in the U.S.A last year</div>
+                        <div class="num-caption">dollars spent by immigrants in the U.S.A last year</div>
                     </div>
-                    
-                    
                 </div>
             </div>
         </div>
     </section>
     <br>
-	<section id="grid" class="intro-section">
+    <section id="grid" class="intro-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h1>
-                        Title
+                        What does the number of immigrants actually look like? 
                     </h1>
                 </div>
             </div>
+            <br> 
+            <br> 
         </div>
-	</section>
+    </section>
     <!-- Services Section -->
     <section id="economy" class="contact-section">
         <div class="container">
@@ -149,23 +144,20 @@
                     <div class="block-stat">
                         <p id="state-info"></p>
                     </div>
-                    
                 </div>
                 <div class="col-lg-6">
                     <div class="block-stat">
                         <p id="state-pop"></p>
                         <p>immigrants living in this state</p>
                     </div>
-                    
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="block-stat">
                         <p id="state-taxes"></p>
-                        <p>taxes paid by immigrants in this state</p>
+                        <p>of taxes paid by immigrants in this state</p>
                     </div>
-                    
                 </div>
                 <div class="col-lg-6">
                     <div class="block-stat">
@@ -176,8 +168,7 @@
             </div>
         </div>
     </section>
-
-        <section id="map" class="intro-section">
+    <section id="map" class="intro-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -186,9 +177,6 @@
             </div>
         </div>
     </section>
-
-
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -199,7 +187,7 @@
     <script src="js/scrolling-nav.js"></script>
     <script type="text/javascript" src="immigrant_countries.json"></script>
     <script src="js/d3Scripts.js"></script>
-	<script src="js/new.js"></script>
+    <script src="js/new.js"></script>
     <script>
     setTimeout(function() {
         immigrantpop.innerHTML = 40000000;
@@ -247,20 +235,20 @@
         }
 
 
-            $("#state-info").text(JSON['Mississippi']['info']);
-            $("#state-pop").text(JSON['Mississippi']['Immigrant Residents']);
-            $("#state-taxes").text(JSON['Mississippi']['Immigrant Taxes Paid (2014)']);
-            $("#state-employees").text(JSON['Mississippi']['Employees at Immigrant-Owned Firms']);
+        $("#state-info").text(JSON['Mississippi']['info']);
+        $("#state-pop").text(JSON['Mississippi']['Immigrant Residents']);
+        $("#state-taxes").text(JSON['Mississippi']['Immigrant Taxes Paid (2014)']);
+        $("#state-employees").text(JSON['Mississippi']['Employees at Immigrant-Owned Firms']);
 
 
         $('select').on('change', function() {
-            var selected = String($(this).find(":selected").val()); 
-            console.log(JSON[selected]); 
+            var selected = String($(this).find(":selected").val());
+            console.log(JSON[selected]);
             $("#state-info").text(JSON[selected]['info']);
             $("#state-pop").text(JSON[selected]['Immigrant Residents']);
             $("#state-taxes").text(JSON[selected]['Immigrant Taxes Paid (2014)']);
             $("#state-employees").text(JSON[selected]['Employees at Immigrant-Owned Firms']);
-            
+
         });
 
 
@@ -268,7 +256,6 @@
 
     })
     </script>
-	
     <style type="text/css">
     	th {
         padding-right: 5px;
