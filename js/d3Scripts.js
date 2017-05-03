@@ -1,13 +1,10 @@
 var dataForBars;
+var dataUSIM;
 d3.json("./WebScraper/gdp_2014.json", function(error, data) {
 
     //Save data for later
     dataForBars = data;
-
-    /*data = data.filter(function(d){
-        return d["Value"] >= data[0]["Value"];
-      });*/
-
+    dataUSIM = data[0];
     data = data.filter(function(d){
         return d["Country Code"] == "USIM" || d["Country Code"] == "USA";
       });
@@ -20,6 +17,56 @@ d3.json("./WebScraper/gdp_2014.json", function(error, data) {
 
 });
 
+function updateInitialBars(){
+  var data = dataForBars;
+
+  data = data.filter(function(d){
+      return d["Country Code"] == "USIM" || d["Country Code"] == "USA";
+    });
+
+  data.sort(function(a, b) {
+      return b["Value"] - a["Value"];
+  });
+
+  drawBarsWithData(data);
+
+  d3.select("#firstImpression").style("display", "block");
+  d3.select("#secondImpression").style("display", "none");
+  d3.select("#finalImpression").style("display", "none");
+}
+
+function updateBars(){
+  var data = dataForBars;
+
+  data = data.filter(function(d){
+      return d["Value"] >= dataUSIM["Value"];
+    });
+
+  data.sort(function(a, b) {
+      return b["Value"] - a["Value"];
+  });
+
+  drawBarsWithData(data);
+
+  d3.select("#firstImpression").style("display", "none");
+  d3.select("#secondImpression").style("display", "block");
+  d3.select("#finalImpression").style("display", "none");
+}
+
+function updateFinalBars(){
+  var data = dataForBars;
+
+  data.sort(function(a, b) {
+      return b["Value"] - a["Value"];
+  });
+
+  drawBarsWithData(data);
+
+  d3.select("#firstImpression").style("display", "none");
+  d3.select("#secondImpression").style("display", "none");
+  d3.select("#finalImpression").style("display", "block");
+}
+
 function drawBarsWithData(data){
 
 
@@ -31,6 +78,7 @@ function drawBarsWithData(data){
   var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
       y = d3.scaleLinear().rangeRound([height, 0]);
 
+  svg.selectAll("*").remove();
   var g = svg.append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -39,6 +87,7 @@ function drawBarsWithData(data){
     x.domain(data.map(function(d) {
        return d["Country Code"]; }));
     y.domain([0, d3.max(data, function(d) { return d["Value"]; })]);
+
 
     g.append("g")
         .attr("class", "axis axis--x")
@@ -68,9 +117,13 @@ function drawBarsWithData(data){
         .attr("text-anchor", "end")
         .text("Frequency");
 
-    g.selectAll(".bar")
-      .data(data)
-      .enter().append("rect")
+
+
+
+    var bar = g.selectAll(".bar").remove().data(data);
+
+
+    bar.enter().append("rect")
         .attr("class", "bar")
         .attr("x", function(d) { return x(d["Country Code"]); })
         .attr("y", function(d) { return y(d["Value"]); })

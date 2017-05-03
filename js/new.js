@@ -41,7 +41,7 @@ function gridData(widthCanvas, heightCanvas) {
 function animateGrid(){
   var men = d3.selectAll(".men")
               .transition()
-              .delay(function(d,i) { return i * 100; })
+              .delay(function(d,i) { return i * 50; })
               .duration(50)
               .style('opacity', 1);
 }
