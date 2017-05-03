@@ -44,10 +44,7 @@ var gridData = gridData();
 // I like to log the data to the console for quick debugging
 console.log(gridData);
 
-var grid = d3.select("#grid")
-    .append("svg")
-    .attr("width","510px")
-    .attr("height","510px");
+var grid = d3.select("#people-grid");
 
 var row = grid.selectAll(".row")
     .data(gridData)
