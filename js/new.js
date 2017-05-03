@@ -11,7 +11,7 @@ function gridData() {
 
         // iterate for cells/columns inside rows
         for (var column = 0; column < 10; column++) {
-            if(row==0 || row ==1 && column < 4){
+            if(row==0 || row ==1 && column < 2){
 				data[row].push({
                 x: xpos,
                 y: ypos,
