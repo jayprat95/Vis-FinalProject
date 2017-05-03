@@ -110,7 +110,7 @@
         </div>
     </section>
     <br>
-    <section id="grid" class="intro-section">
+    <section id="grid" class="contact-section gray-bg-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -153,7 +153,7 @@
         </div>
     </section>
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section gray-bg-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -201,7 +201,7 @@
             <p>Immigrants are 30% more likely to start a business. We were curious and wanted to illustrate this fact. Below, you can see fortune 500 companies founded by immigrants and see the number of people they employ. </p>
           </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-12">
                 <div id="map"></div>
@@ -220,23 +220,56 @@
     <script type="text/javascript" src="immigrant_countries.json"></script>
     <script src="js/d3Scripts.js"></script>
     <script src="js/new.js"></script>
+    <!--<script src="js/jquery.panelSnap.js"></script>-->
     <script>
-    setTimeout(function() {
-        immigrantpop.innerHTML = 40;
-    }, 1000);
+/*
+    var options = {
+          $menu: false,
+          menuSelector: 'a',
+          panelSelector: '> section',
+          namespace: '.panelSnap',
+          onSnapStart: function(){},
+          onSnapFinish: function(){},
+          onActivate: function(){},
+          directionThreshold: 20,
+          slideSpeed: 200,
+          easing: 'linear',
+          offset: 20,
+          navigation: {
+            keys: {
+              nextKey: true,
+              prevKey: true,
+            },
+            buttons: {
+              $nextButton: true,
+              $prevButton: true,
+            },
+            wrapAround: false
+          }
+        };
 
-    setTimeout(function() {
-        fortune500.innerHTML = 40.2;
-    }, 1000);
+    $('body').panelSnap(options);
+*/
 
-    setTimeout(function() {
-        shareofecon.innerHTML = 14.2;
-    }, 1000);
 
-    setTimeout(function() {
-        moneyspent.innerHTML = 126;
-    }, 1000);
 
+    function animateNumbers(){
+      setTimeout(function() {
+          immigrantpop.innerHTML = 40;
+      }, 1000);
+
+      setTimeout(function() {
+          fortune500.innerHTML = 40.2;
+      }, 1000);
+
+      setTimeout(function() {
+          shareofecon.innerHTML = 14.2;
+      }, 1000);
+
+      setTimeout(function() {
+          moneyspent.innerHTML = 126;
+      }, 1000);
+    }
 
 
 
@@ -263,6 +296,7 @@
         JSON = response;
 
         var keys = Object.keys(JSON);
+        keys = keys.sort();
 
         for (var i = 0; i < keys.length; i++) {
             var option = $('<option></option>').text(keys[i]);

@@ -38,6 +38,14 @@ function gridData(widthCanvas, heightCanvas) {
     return data;
 }
 
+function animateGrid(){
+  var men = d3.selectAll(".men")
+              .transition()
+              .delay(function(d,i) { return i * 100; })
+              .duration(50)
+              .style('opacity', 1);
+}
+
 
 var grid = d3.select("#people-grid");
 
@@ -63,9 +71,6 @@ var column = row.selectAll(".men")
     .attr("width", function(d) { return d.width; })
 	.attr("height", function(d) { return d.height; });
 
+
   var men = d3.selectAll(".men")
-              .style('opacity', 0)
-              .transition()
-              .delay(function(d,i) { return i * 100; })
-              .duration(100)
-              .style('opacity', 1);
+              .style('opacity', 0);
